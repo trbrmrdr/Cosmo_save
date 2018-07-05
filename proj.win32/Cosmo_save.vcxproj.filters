@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{3f8a1112-6295-4ea3-aad6-dcc6ef0edf37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scenes">
+      <UniqueIdentifier>{161335ea-26cc-4fd0-a487-1ffc999b341c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Box2d">
+      <UniqueIdentifier>{64acdba6-4175-4919-bb5b-0ab74db89995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Utils">
+      <UniqueIdentifier>{7cbe75d4-ee3f-41eb-9a54-964845ae3166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\UI">
+      <UniqueIdentifier>{b6626164-dd2f-4b04-a4cf-4f28a24e2b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ExtendedNode">
+      <UniqueIdentifier>{939e760f-5a11-47f1-b94a-fc00d3c91112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\WorldSpline">
+      <UniqueIdentifier>{8727c279-d66a-4d4b-8602-2db397217cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scenes\Cosmo">
+      <UniqueIdentifier>{b072f02c-1636-4f2a-86d6-e206dc42097f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\GamesCamera.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Box2d\GLES-Render.cpp">
+      <Filter>Classes\Box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DevelopMenu.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\World\World.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\DevelopScene.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\VisibleRect.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\XmlUtils.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\Easing.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\HelperUtils.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\MathUtils.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils\SettingUtils.cpp">
+      <Filter>Classes\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\stdafx.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\STTextField.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\TabButton.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\AddButton.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\ColorField.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\LayoutRefresh.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\ListVIew_2.cpp">
+      <Filter>Classes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ExtendedNode\DrawNode2.cpp">
+      <Filter>Classes\ExtendedNode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WorldSpline\WorldSpline.cpp">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WorldSpline\TSpline.cpp">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WorldSpline\Vertex.cpp">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\World\Cosmo\World_cosmo.cpp">
+      <Filter>Classes\Scenes\Cosmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\World\Cosmo\PlanetSpline.cpp">
+      <Filter>Classes\Scenes\Cosmo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\GamesCamera.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Box2d\GLES-Render.h">
+      <Filter>Classes\Box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DevelopMenu.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\World\World.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\DevelopScene.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\VisibleRect.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\XmlUtils.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\Easing.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\FileUtils.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\HelperUtils.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\MathUtils.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\SettingUtils.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\stdafx.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\STTextField.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\TabButton.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\AddButton.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\ColorField.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\LayoutRefresh.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\ListVIew_2.h">
+      <Filter>Classes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils\Singleton.h">
+      <Filter>Classes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ExtendedNode\DrawNode2.h">
+      <Filter>Classes\ExtendedNode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WorldSpline\WorldSpline.h">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WorldSpline\TSpline.h">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WorldSpline\Vertex.h">
+      <Filter>Classes\WorldSpline</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\World\Cosmo\World_cosmo.h">
+      <Filter>Classes\Scenes\Cosmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\World\Cosmo\PlanetSpline.h">
+      <Filter>Classes\Scenes\Cosmo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
