@@ -5,6 +5,8 @@
 #define WCROSS2 40
 #define RV 5.2f
 
+bool Vertex::_IsAngle = false;
+
 Vertex::~Vertex(){
     deleteControl();
 
@@ -146,6 +148,7 @@ void Vertex::setConnections(Vertex* head, Vertex* tail){
 
 
 void Vertex::updateAngle(bool isConnections){
+	if (!_IsAngle)return;
 	bool isUpdateAngleToHead = false;
 	if(_head != NULL){
 		isUpdateAngleToHead = _angleToHead_2 == _angleToHead;

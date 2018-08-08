@@ -7,7 +7,8 @@ class PlanetSpline: public WorldSpline {
 private:
 	Node * _layer;
 	SettingUtil* _setting;
-	
+	Vec2 m_pos;
+
 public:
 
 
@@ -28,4 +29,5 @@ public:
 
 	void create_circle(int segment);
 
+	void setPos(const Vec2& pos) { m_pos = pos; }
 };

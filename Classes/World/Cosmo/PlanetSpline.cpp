@@ -120,7 +120,11 @@ public:
 		elapsed += delta;
 		float percent = MIN(elapsed / delay, 1.);
 
+		float y = sin(percent*3.14*10.)*10.;
 		pos = from + (to - from)*(sign > 0 ? percent : 1. - percent);
+
+		float a = (to - from).getAngle();
+		pos += Vec2(.0f, y).rotateByAngle(Vec2::ZERO, a);
 
 		if (percent >= 1.) {
 			elapsed = .0;
@@ -231,6 +235,13 @@ bool PlanetSpline::changeKeys(EventKeyboard::KeyCode keyCode, KeyState keyState)
 
 PlanetSpline::~PlanetSpline() {}
 
+Vec2 m_pivot;
+
+
+float m_elapsed = .0f;
+float m_angle = .0f;
+float m_delay = 2.f;
+
 void PlanetSpline::update(float delta) { //if isLast delta ==0
 	if (!change_spline) {
 		change_spline = isChangedSpline();
@@ -245,24 +256,43 @@ void PlanetSpline::update(float delta) { //if isLast delta ==0
 		}
 	}
 	setChangedSpline(true);
+
+	m_pivot = Vec2::ZERO;
+
+	m_elapsed += delta;
+	float percent = MIN(m_elapsed / m_delay, 1.);
+
+	m_angle = M_PI * 2.*percent;
+	while (percent >= 1.) {
+		m_elapsed -= m_delay * (int)percent;
+		percent -= (int)percent;
+	}
 }
+
+Vec2 m_s_pos;
+bool has_press = false;
 
 bool PlanetSpline::mouseDown(const Vec2& mousePos, bool isCreated) {
 	if (!_isVisible) return false;
-	if (WorldSpline::mouseDown(mousePos, isCreated))	return true;
+	//ненужно редактируется в Update
+	//if (WorldSpline::mouseDown(mousePos, isCreated))	return true;
+	m_s_pos = mousePos;
+	has_press = true;
 	return true;
 }
 
 bool PlanetSpline::mouseMovie(const Vec2& mousePos, Vec2* dPos) {
 	if (!_isVisible) return false;
-	if (WorldSpline::mouseMovie(mousePos, dPos))return true;
+	//if (WorldSpline::mouseMovie(mousePos, dPos))return true;
+	setPos(mousePos - m_s_pos);
 	return	true;
 }
 
 bool PlanetSpline::mouseUp(const Vec2& mousePos) {
 	if (!_isVisible) return false;
-	if (WorldSpline::mouseUp(mousePos))
-		return true;
+	//if (WorldSpline::mouseUp(mousePos))return true;
+	has_press = false;
+	setPos(Vec2::ZERO);
 	return true;
 }
 
@@ -316,13 +346,19 @@ void PlanetSpline::draw() {
 	if (change_spline)
 		drawNode->clear();
 	//________________________
+	bool draw_edit = DevelopMenu::Instance().isEnable();
+
+	if (draw_edit) {
+		float d_p = 10.;
+		Vec2 pos = m_pivot + m_pos;
+		drawNode->drawLine(pos + Vec2(-d_p, .0), pos + Vec2(+d_p, .0), Color4F::BLACK);
+		drawNode->drawLine(pos + Vec2(.0, -d_p), pos + Vec2(.0, +d_p), Color4F::BLACK);
+	}
 
 	for (TSpline* _tspline : _TSplines) {
-		{
-
+		if (false) {
 			Vertex* v2 = NULL;
 			Vertex* first = NULL;
-
 			for (Vertex* v1 : _tspline->getSpline()) {
 				///*
 				if (!first)first = v1;
@@ -331,8 +367,6 @@ void PlanetSpline::draw() {
 				v2 = v1;
 				/**/
 			}
-
-
 			if (_tspline->IsClosed()) {
 				Vertex::Draw(v2, first, false, true, _isEdit);
 			}
@@ -354,15 +388,18 @@ void PlanetSpline::draw() {
 				if (NULL == first) {
 					first = v1;
 				}
-				v1->Draw(true, _isEdit);
-				if (v2) Vertex::Draw(v2, v1, false, false, _isEdit);
+				if (draw_edit) {
+					v1->Draw(true, _isEdit);
+					if (v2) Vertex::Draw(v2, v1, false, false, _isEdit);
+				}
 				v2 = v1;
 				//_____________
 				if (change_spline) {
-					pointArray->addControlPoint(v1->getPos());
+					Vec2 pos = v1->getPos().rotateByAngle(m_pivot, m_angle) + m_pos;
+					pointArray->addControlPoint(pos);
 					AnimVertex* v = (AnimVertex*)(v1->getData());
-
-					drawNode->drawLine(v->from, v->to, Color4F::RED);
+					if (draw_edit)
+						drawNode->drawLine(v->from, v->to, Color4F::RED);
 
 #if 0
 					drawNode->drawLine(v->pos_s, v->pos_s + getVCircle(v->radius, v->rads - v->coef), Color4F::BLACK);
@@ -404,8 +441,9 @@ void PlanetSpline::draw() {
 			}
 
 			if (_tspline->IsClosed()) {
-				Vertex::Draw(v2, first, false, false, _isEdit);
-				//pointArray->addControlPoint(first->getPos());
+				if (draw_edit)
+					Vertex::Draw(v2, first, false, false, _isEdit);
+				//x pointArray->addControlPoint(first->getPos());
 			}
 
 

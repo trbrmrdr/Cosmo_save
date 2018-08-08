@@ -80,6 +80,8 @@ private:
 	int _temporaryId = -1;
 
 public:
+	static bool _IsAngle;
+
 	void setPosText(const Vec2& pos){ _dtpos = pos; }
 	Vec2 getPosText() const{ return _dtpos; }
 
